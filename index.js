@@ -18,9 +18,13 @@ app.use(
         maxAge: 30 * 24 * 60 * 60 * 1000,
 
         //this key will encript the cookie 
-        keys: []
+        keys: [keys.cookieKey]
     })
 );
+
+//telling passport to use cookies to authenticate users
+app.use(passport.initialize());
+app.use(passport.session());
 
 //returns a function and then immediately call the app 
 require('./routes/authRoutes')(app);
