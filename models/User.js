@@ -8,4 +8,5 @@ const userSchema  = new Schema({
  googleId: String
 });
 //this is for the collection of users
+
 module.exports = mongoose.model('users', userSchema);
