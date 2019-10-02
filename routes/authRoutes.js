@@ -10,7 +10,7 @@ app.get(
 
 app.get('/auth/google/callback', passport.authenticate('google'));
 
-//this will kill the cookie for logout
+//this will kill the cookie on logout
 app.get('/api/logout', (req, res) => {
     req.logout();
     res.send(req.user);
