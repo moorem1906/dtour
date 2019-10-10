@@ -39,7 +39,7 @@ require('./routes/billingRoutes')(app);
 if(process.env.NODE_ENV === 'production') {
   //Express will server up prodution assests 
 
-  app.use(express.static('client/build')); //look into the client/build and if file exist and repond with it.
+  app.use(express.static('client/build')); //look into the client/build and if file exist then repond with it.
   //like main.js or main.css files
 
   const path = require('path');
