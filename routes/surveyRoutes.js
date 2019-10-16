@@ -16,29 +16,32 @@ module.exports = app => {
     app.post('/api/surveys', requireLogin, requireCredit, async(req, res) => {
         const { title, subject, body, recipients } = req.body;
 
+        console.log(req.body);
+        console.log(req.body.user);
+
 
         const survey = new Survey({
             title,
             subject,
             body,
             recipients: recipients.split(',').map(email => ({ email: email.trim() })),
-            _user: req.user.id,
+            _user: req.body.user.id,
             dateSent: Date.now()
 
         });
 
         //send email 
-        const mailer = new Mailer(survey, surveyTemplate(survey()));
+        const mailer = new Mailer(survey, surveyTemplate(survey));
 
         try{
         await mailer.send();
         await survey.save();
-        req.user.credits -= 1;
-       const user = await req.user.save();
+        req.body.user.credits -= 1;
+       const user = await req.body.user.save();
 
        res.send(user);
         } catch(error) {
-            res.status(422).send(err); //Unprocessable entity 
+            res.status(422).send(error); //Unprocessable entity 
         }
     });
 };
