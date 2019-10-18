@@ -22,4 +22,13 @@ const destinationSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Destination', destinationSchema)
+const tripSchema = new Schema({
+    user_id: String,
+    total_price: Number,
+    destinations: [ {
+        type: destinationSchema
+    } ]
+
+});
+
+module.exports = mongoose.model('Trip', tripSchema)
