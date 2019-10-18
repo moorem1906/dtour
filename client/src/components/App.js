@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import  { connect } from 'react-redux';
-import * as actions  from '../actions';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 
 import Header from './Header';
@@ -13,23 +13,22 @@ import Destination from './Destination';
 
 
 
-class App extends Component{
-    componentDidMount () {
+class App extends Component {
+    componentDidMount() {
         this.props.fetchUser();
     }
     render() {
-        return(
-            <div className="container">   
+        return (
+
             <BrowserRouter>
-                <div>
+                <div className="container">
                     <Header />
-                <Route exact path="/"  component={Landing} />  
-                <Route exact path="/surveys" component={Dashboard} />
-                <Route exact path="/surveys/new" component={SurveyNew} />
-                <Route exact path="/destination" component={Destination} />
+                    <Route exact path="/" component={Landing} />
+                    <Route exact path="/surveys" component={Dashboard} />
+                    <Route exact path="/surveys/new" component={SurveyNew} />
+                    <Route exact path="/destination" component={Destination} />
                 </div>
             </BrowserRouter>
-            </div>
         );
     }
 }
