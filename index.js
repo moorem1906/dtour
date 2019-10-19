@@ -52,7 +52,7 @@ if(process.env.NODE_ENV === 'production') {
   //Express will server up index.html file if rotes isn't recognizeda
 }
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`)
 });

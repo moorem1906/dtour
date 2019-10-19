@@ -1,4 +1,4 @@
-import {FETCH_USER}  from './types';
+import { FETCH_USER } from './types';
 import axios from 'axios';
 import {constants} from '../constants'
 
@@ -22,11 +22,14 @@ export const searchDestinations = params => dispatch => {
 }
 
 export const fetchUser = () => async dispatch => {
-    console.log(fetchUser);
-    const res= await axios.get('/api/current_user');
-     dispatch({ type: FETCH_USER, payload: res.data});
+  console.log(fetchUser);
+  const res = await axios.get('/api/current_user');
+  dispatch({ type: FETCH_USER, payload: res.data });
 };
 
+export const handleToken = (token) => async dispatch => {
+  const res = await axios.post('/api/stripe', token);
+  dispatch({ type: FETCH_USER, payload: res.data });
 export const bookTrip = params => dispatch => {
     console.log('params', params)
     const data = {
@@ -42,6 +45,13 @@ export const bookTrip = params => dispatch => {
 
 export const handleToken = (token) => async dispatch =>{
     const res = await axios.post('/api/stripe', token);
-  dispatch({ type: FETCH_USER, payload: res.data });  
+  dispatch({ type: FETCH_USER, payload: res.data });
 };
 
+export const submitSurvey = (values, history) => async dispatch => {
+  const res = await axios.post('/api/surveys', values);
+
+  history.push('/surveys');
+  dispatch({ type: FETCH_USER, payload: res.data });
+
+};

@@ -3,6 +3,7 @@
 // export is from file 
 
 import {combineReducers} from 'redux';
+import { reducer as reduxForm } from 'redux-form';
 import authReducer from './authReducers';
 import { constants } from '../../constants';
 
@@ -46,5 +47,8 @@ export default combineReducers({
     auth: authReducer,
     destinations,
     trip_destinations,
-    trip_total
-}); 
+    trip_total,
+    auth: authReducer,
+    form: reduxForm
+
+});
