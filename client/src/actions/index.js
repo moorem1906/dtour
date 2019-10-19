@@ -1,6 +1,8 @@
 import { FETCH_USER } from './types';
 import axios from 'axios';
-import { constants } from '../constants'
+import { constants } from '../constants';
+import {fetch} from 'whatwg-fetch'
+
 
 
 
@@ -17,9 +19,9 @@ export const searchDestinations = params => dispatch => {
     dispatch({
       type: constants.GET_DESTINATIONS,
       payload: res.data
-    })
-  })
-}
+    });
+  });
+};
 
 export const fetchUser = () => async dispatch => {
   console.log(fetchUser);
@@ -30,6 +32,7 @@ export const fetchUser = () => async dispatch => {
 export const handleToken = (token) => async dispatch => {
   const res = await axios.post('/api/stripe', token);
   dispatch({ type: FETCH_USER, payload: res.data });
+};
   export const bookTrip = params => dispatch => {
     console.log('params', params)
     const data = {
@@ -41,12 +44,12 @@ export const handleToken = (token) => async dispatch => {
     axios.post('/api/trip/book', data).then(res => {
       alert('Successfully booked trip! Have fun!')
     });
-  }
-
-  export const handleToken = (token) => async dispatch => {
-    const res = await axios.post('/api/stripe', token);
-    dispatch({ type: FETCH_USER, payload: res.data });
   };
+
+  // export const handleToken = (token) => async dispatch => {
+  //   const res = await axios.post('/api/stripe', token);
+  //   dispatch({ type: FETCH_USER, payload: res.data });
+  // };
 
   export const submitSurvey = (values, history) => async dispatch => {
     const res = await axios.post('/api/surveys', values);
@@ -54,4 +57,4 @@ export const handleToken = (token) => async dispatch => {
     history.push('/surveys');
     dispatch({ type: FETCH_USER, payload: res.data });
 
-  }};
+  };

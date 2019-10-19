@@ -13,7 +13,7 @@ class Header extends Component {
         return <li><a href="/auth/google">Google Login</a></li>
       default:
         return [
-          <li key="4"><a href="/api/destinations">Destinations</a></li>,
+          <li key="4"><a href="/api/maps">Maps</a></li>,
           <li key="1"><Payments /></li>,
           //print out the credits user have
           <li key="3" style={{ margin: '0 10px'}}> 
