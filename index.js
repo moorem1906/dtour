@@ -31,6 +31,8 @@ require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 require('./routes/surveyRoutes')(app);
 require('./routes/destinationRoutes')(app);
+require('./routes/tripRoutes')(app);
+
 
 //lets express to function properly in production/heroku
 
