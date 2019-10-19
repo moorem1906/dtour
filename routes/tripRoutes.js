@@ -4,7 +4,7 @@ const db = require('../services/db')
 module.exports = app => {
     // This will look up destinations within a radius of a lat/long point.
     app.post('/api/trip/book', async(req, res) => {
-        let user_id = req.body.user_id;
+        let user_id = req.user_id;
         let destinations = req.body.destinations;
         let total_price = req.body.total_price;
 

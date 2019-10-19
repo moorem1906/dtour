@@ -28,7 +28,7 @@ module.exports = app => {
         const { title, subject, body, recipients } = req.body;
 
         console.log(req.body);
-        console.log(req.body.user);
+        console.log(req.user);
 
 
         const survey = new Survey({
@@ -36,7 +36,7 @@ module.exports = app => {
             subject,
             body,
             recipients: recipients.split(',').map(email => ({ email: email.trim() })),
-            _user: req.body.user.id,
+            _user: req.user.id,
             dateSent: Date.now()
 
         });
@@ -47,8 +47,8 @@ module.exports = app => {
         try{
         await mailer.send();
         await survey.save();
-        req.body.user.credits -= 1;
-       const user = await req.body.user.save();
+        req.user.credits -= 1;
+       const user = await req.user.save();
 
        res.send(user);
         } catch(error) {
