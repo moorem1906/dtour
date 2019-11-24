@@ -86,4 +86,7 @@ dTour can be accessed, however all privileges to view shared routes and/or share
   
 Application Link:
 https://shielded-badlands-24567.herokuapp.com/
+
+
+Vision Link:
 file:///C:/Users/moore/Desktop/Dtour/index.html
