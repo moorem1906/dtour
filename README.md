@@ -85,4 +85,4 @@ dTour can be accessed, however all privileges to view shared routes and/or share
    
   
 Application Link:
-https://git.heroku.com/shielded-badlands-24567.git
+https://shielded-badlands-24567.herokuapp.com/
