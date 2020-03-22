@@ -14,7 +14,7 @@ class Payments extends  Component {
                 
                 description="Please submit your payment information to purchase your next trip with Dtour"
             //Give me $5 in US currency
-                amount={5}
+                amount={50}
             //Expecting to receive callback after autherization of charge
                 token={token => this.props.handleToken(token)}
             //Api key
